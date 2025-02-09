@@ -1,0 +1,489 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    align-items: center;
+    padding: 15px 20px;
+    
+}
+.logo{
+    font-size: 20px;
+}
+nav{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+}
+nav ul li{
+    margin: 0 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.lg{
+    background-color: darkred;
+    color:whitesmoke;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.toggle-menu{
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: none;
+    
+}
+@media screen and (max-width:767px) {
+    .toggle-menu{
+        display: block;
+    }
+    nav ul{
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        flex-direction: column;
+        border-radius: 5px;
+    
+        background-color: black;
+        padding: 10px;
+        width: 200px;
+    }
+    nav ul.active{
+        display: flex;
+    }
+}
+
+
+
+
+#banner{
+    background: url(cover.jpg) no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.banner-content{
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 5%;
+    padding: 10px;
+}
+.banner-content h1{
+    font-family: 0.2rem;
+    color: yellow;
+}
+.banner-content p{
+    font-size: 1rem;
+}
+.btn{
+    border:none;
+    font-size: 20px;
+    background-color: yellow;
+    color:black;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    
+}
+.btn:hover{
+    background-color: white;
+    color: darkturquoise;
+    transform: scale(1.04);
+}
+@media screen and (max-width:767px) {
+    .banner-content h1{
+        font-family: 0.3rem;
+
+        
+    }
+    .banner-content p{
+        font-size: 0.9rem;
+    }
+
+    
+}
+#about {
+    
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+
+}
+.h1{
+    position: absolute;
+    top: 5%;
+    left:48%;
+
+}
+#about p{
+    font-size: 2rem;
+    justify-content: center;
+    border: 1px solid #e4b3b3;
+    padding: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    /* width: 400px;
+    height: auto; */
+    background-color: #ddd;
+    
+    
+    
+}
+@media screen and (max-width:767px) {
+   #about p{
+    width: 100%;
+    font-size: 1rem;
+   }
+   .h1{
+    left: 44%;
+   }
+    
+}
+.hd{
+    text-align: center;
+}
+#menu-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+.card{
+    position: relative;
+    display:flex;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5%;
+    padding: 10px;
+    background: white;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+
+}
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+
+}
+.card img{
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transform: scale(1.04);
+}
+.card .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background:rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3 ease;
+
+}
+.card {
+    position: relative; /* Parent element relative */
+    width: 250px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background: white;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.card:hover .overlay{
+    opacity: 1;
+}
+.name{
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.1);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+}
+@media screen and (max-width:767px) {
+    #menu-items{
+        flex-direction: column;
+        
+    }
+    .card{
+        width: 100%;
+    }
+}
+#contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(73, 61, 61);
+    color: white;
+}
+.contact-info p{
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+}
+@media screen and (max-width:767px) {
+    .contact-info p{
+        
+        font-size: 12px;
+       
+    }
+    
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color:grey;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+@media screen and (max-width:767px) {
+    footer{
+        font-size: 12px;
+    }
+    
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .menu-items{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card{
+    position: relative;
+    width: 250px;
+    border: 1px solid #ddd ;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background: white;
+    overflow: hidden;
+
+}
+.card img{
+    width: 100%;
+    border-radius: 5px;
+   
+}
+.card .cards{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    opacity: 0;
+    transition:  opacity 0.3s ease;
+}
+.card:hover .cards{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.menu-items{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card{
+   position: relative;
+   width: 250px;
+   border: 1px solid #ddd;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   border-radius: 5px;
+   background: white;
+   overflow: hidden;
+   padding: 10px;
+}
+.card:hover{
+    transform: scale(1.05);
+}
+.card img{
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transform: scale(1.05);
+}
+.card .cards{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0, 0, 0.4);
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.card:hover .cards{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="tst.css">
+</head>
+<body>
+    <header>
+        h
+    </header>
+    <main>
+
+        <div class="menu-items">
+            <div class="card">
+                <img src="img1.jpg" alt="img">
+                <div class="cards">
+                    Item no:01 <br>
+                    Item name:burger <br>
+                    price:250tk
+                    
+                </div>
+            </div>
+            <div class="card">
+                <img src="img1.jpg" alt="img">
+                <div class="cards">
+                    Item no:01 <br>
+                    Item name:burger <br>
+                    price:250tk
+                    
+                </div>
+            </div>
+            <div class="card">
+                <img src="img1.jpg" alt="img">
+                <div class="cards">
+                    Item no:01 <br>
+                    Item name:burger <br>
+                    price:250tk
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+</body>
+</html> */ */

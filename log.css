@@ -1,0 +1,60 @@
+/* 🌟 Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+/* 🔹 Login Container */
+.login-container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 320px;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    background: #eee;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.input-box i {
+    margin-right: 10px;
+}
+
+.input-box input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+}
+
+/* 🔹 Log In Button */
+.login-btn {
+    background: #ffcc00;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #ffa500;
+}
