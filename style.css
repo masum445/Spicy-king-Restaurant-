@@ -164,14 +164,18 @@ nav ul li a{
     
     display: flex;
     justify-content: center;
-    position: relative;
+    
+   
+   
     
 
 }
-.h1{
-    position: absolute;
-    top: 5%;
-    left:48%;
+#abouts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+   
 
 }
 #about p{
@@ -187,15 +191,21 @@ nav ul li a{
     
     
     
+    
+}
+#about p:hover{
+    box-shadow: 5px 5px 70px rgb(222, 136, 25);
+}
+#about p:active{
+ 
+    box-shadow: 5px 5px 70px burlywood;
 }
 @media screen and (max-width:767px) {
    #about p{
     width: 100%;
     font-size: 1rem;
    }
-   .h1{
-    left: 44%;
-   }
+  
     
 }
 .hd{
@@ -268,6 +278,7 @@ nav ul li a{
 .card:hover{
     cursor: pointer;
     transform: scale(1.04);
+   
 
 }
 .card img{
@@ -277,6 +288,7 @@ nav ul li a{
 }
 .card img:hover{
     transform: scale(1.04);
+   
 }
 .card .overlay{
     position: absolute;
