@@ -16,8 +16,18 @@ header{
     color: white;
     align-items: center;
     padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    border: rgba(255,0,0,0.5);
+    transition: backgroun 0.3s ease backdrop-filter 0.3s ease;
+    z-index: 1;
     
 }
+.scrolled{
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
 .logo{
     font-size: 20px;
     
@@ -56,6 +66,7 @@ nav{
     position: relative;
     display: flex;
     align-items: center;
+    
 }
 nav ul{
     list-style: none;
@@ -218,7 +229,7 @@ nav ul li a{
     gap: 20px;
     flex-wrap: wrap;
     margin: 10px;
-    
+    z-index: -1;
    
         font-family: "Atma", system-ui;
         font-weight: 300;
