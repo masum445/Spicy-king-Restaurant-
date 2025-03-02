@@ -1,3 +1,5 @@
+
+
 *{
     box-sizing: border-box;
 }
@@ -18,6 +20,37 @@ header{
 }
 .logo{
     font-size: 20px;
+    
+        font-family: "Atma", system-ui;
+        font-weight: 300;
+        font-style: normal;
+      
+      
+      
+        font-family: "Atma", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      
+      
+      
+        font-family: "Atma", system-ui;
+        font-weight: 500;
+        font-style: normal;
+      
+      
+      
+        font-family: "Atma", system-ui;
+        font-weight: 600;
+        font-style: normal;
+      
+      
+      
+        font-family: "Atma", system-ui;
+        font-weight: 700;
+        font-style: normal;
+      
+      
+      
 }
 nav{
     position: relative;
@@ -148,8 +181,8 @@ nav ul li a{
     padding: 50px;
     text-align: center;
     text-transform: uppercase;
-    /* width: 400px;
-    height: auto; */
+    width:100%;
+    
     background-color: #ddd;
     
     
@@ -174,20 +207,59 @@ nav ul li a{
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin: 10px;
+    
+   
+        font-family: "Atma", system-ui;
+        font-weight: 300;
+        font-style: normal;
+      
+      
+      
+        font-family: "Atma", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      
+      
+ 
+        font-family: "Atma", system-ui;
+        font-weight: 500;
+        font-style: normal;
+      
+      
+     
+        font-family: "Atma", system-ui;
+        font-weight: 600;
+        font-style: normal;
+    
+      
+      
+        font-family: "Atma", system-ui;
+        font-weight: 700;
+        font-style: normal;
+      
+      
+      
+      
+ 
+      
+     
+      
 }
 .card-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 250px;
+    width:300px;
 }
 .card{
     position: relative;
     display:flex;
-    width: 250px;
+    width: 300px;
     border: 1px solid #ddd;
     border-radius: 5%;
     padding: 10px;
+   
     background: white;
     overflow: hidden;
     transition: 0.3s ease-in-out;
@@ -201,6 +273,7 @@ nav ul li a{
 .card img{
     width: 100%;
     transition: 0.3s ease-in-out;
+    border-radius: 5px;
 }
 .card img:hover{
     transform: scale(1.04);
@@ -225,9 +298,10 @@ nav ul li a{
 }
 .card {
     position: relative; /* Parent element relative */
-    width: 250px;
+    width: 300px;
     border: 1px solid #ddd;
     padding: 10px;
+    
     text-align: center;
     border-radius: 5px;
     background: white;
@@ -245,9 +319,37 @@ nav ul li a{
     text-align: center;
     background-color: rgba(0,0,0,0.1);
     font-size: 18px;
-    font-weight: bold;
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
     margin: 5px;
+    font-family: "Atma", system-ui;
+ 
+    font-style: normal;
+  
+  
+  
+    font-family: "Atma", system-ui;
+  
+    font-style: normal;
+  
+  
+
+    font-family: "Atma", system-ui;
+   
+    font-style: normal;
+  
+  
+ 
+    font-family: "Atma", system-ui;
+    
+    font-style: normal;
+
+  
+  
+    font-family: "Atma", system-ui;
+    font-weight: 700;
+    font-style: normal
 }
 @media screen and (max-width:767px) {
     #menu-items{
@@ -263,8 +365,17 @@ nav ul li a{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgb(73, 61, 61);
+    background-color: rgb(57, 57, 66);
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+      
+       
+      
+      
+      
+       
+      
+      
 }
 .contact-info p{
     text-transform: uppercase;
@@ -296,44 +407,4 @@ footer{
     }
     
 }
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
