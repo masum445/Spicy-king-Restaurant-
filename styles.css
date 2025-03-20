@@ -76,7 +76,7 @@ body{
 }
 @media screen and (max-width:768px) {
     .child{
-        width: 75%;
+        width: 80%;
         flex-direction: column;
        
     }

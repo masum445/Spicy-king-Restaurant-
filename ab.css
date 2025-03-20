@@ -1,0 +1,29 @@
+body{
+    background-color:#333;
+    backdrop-filter: 10px;
+}
+.p{
+    text-align: center;
+    font-size: 24px;
+    margin: 15px;
+    padding: 10px;
+    word-wrap: normal;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    color: whitesmoke;
+    
+}
+.p h1{
+    font-size: 28px;
+}
+@media screen and (max-width:768px){
+    .p{
+        text-align: center;
+        font-size: 25px;
+        word-spacing: 5px;
+    }
+}
+h1{
+    text-align: center;
+    color: whitesmoke;
+}
