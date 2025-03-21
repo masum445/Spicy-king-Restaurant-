@@ -6,6 +6,51 @@
 body{
     background-color: #ddd;
 }
+.logo{
+    text-align: center;
+    margin-top: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+        
+    font-family: "Atma", system-ui;
+    font-weight: 300;
+    font-style: normal;
+  
+  
+  
+    font-family: "Atma", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  
+  
+  
+    font-family: "Atma", system-ui;
+    font-weight: 500;
+    font-style: normal;
+  
+  
+  
+    font-family: "Atma", system-ui;
+    font-weight: 600;
+    font-style: normal;
+  
+  
+  
+    font-family: "Atma", system-ui;
+    font-weight: 700;
+    font-style: normal;
+   
+    
+}
+.logo a{
+    text-decoration: none;
+    color:whitesmoke;
+    font-size: 30px;
+    
+}
 .name{
     text-align: center;
     margin: 25px;
@@ -61,6 +106,7 @@ body{
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    background-color: none;
     background:#ddd ;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     font-size: 15px;
@@ -80,4 +126,11 @@ body{
         flex-direction: column;
        
     }
+}
+footer{
+    background-color: #555;
+    color: whitesmoke;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
 }
