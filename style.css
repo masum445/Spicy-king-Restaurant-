@@ -143,22 +143,28 @@ nav ul li a{
 .banner-content p{
     font-size: 1rem;
 }
-.btn{
-    border:none;
-    font-size: 20px;
+
+
+ .btn{
     background-color: yellow;
-    color:black;
+    border:none;
+    border-radius: 15px;
     padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: .3s ease-in;
+
+}
+.btn a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
 }
 .btn:hover{
-    background-color: white;
-    color: darkturquoise;
+    background-color:#ddd;
+    color: whitesmoke;
     transform: scale(1.04);
-}
+} 
 @media screen and (max-width:767px) {
     .banner-content h1{
         font-family: 0.3rem;
