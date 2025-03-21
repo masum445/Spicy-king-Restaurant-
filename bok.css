@@ -7,7 +7,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 15%;
+    margin-top: 12%;
     
    
 }
@@ -26,13 +26,13 @@ input{
     padding: 8px;
     border-radius: 5px;
     border:none;
-    background-color:#ddd;
+    background-color:#ddddddad;
+    font-size: 18px;
     
 }
 label{
     font-size: 20px;
     color:whitesmoke;
-     /* text-shadow:0 0 5px whitesmoke; */
     padding: 10px;
     line-height: 40px;
     display: block;
@@ -47,6 +47,13 @@ button{
     padding-left: 70px;
     border-radius: 30px;
     cursor: pointer;
+    transition: .3s ease-in;
+    font-size: 15px;
+}
+.booking button:hover{
+    background-color:skyblue;
+    color:black;
+    transform:scale(1.04);
 }
 @media screen and (max-width:768px) {
     .main {
