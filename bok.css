@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     background-color:#274353;
 }
@@ -57,9 +60,10 @@ button{
 }
 @media screen and (max-width:768px) {
     .main {
-        margin-top: 46%;
+        margin-top: 40%;
     }
 }
+
 @media screen and (max-width:1180px) {
     .main {
         margin-top: 40%;

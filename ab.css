@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     background-color:#333;
     backdrop-filter: 10px;
@@ -49,7 +52,7 @@ body{
     
 }
 .p{
-    text-align: center;
+    text-align: left;
     font-size: 24px;
     margin: 15px;
     padding: 10px;
@@ -66,11 +69,14 @@ body{
 }
 @media screen and (max-width:768px){
     .p{
-        text-align: center;
+        text-align: left;
         font-size: 25px;
         word-spacing: 10px;
         line-height: 40px;
         
+    }
+    .logo a{
+        font-size: 18px;
     }
 }
 h1{

@@ -160,6 +160,7 @@ label{
     line-height: 50px;
     font-size: 20px;  
     text-shadow:0 0 70px whitesmoke;
+    color: rgb(28, 76, 167);
 }
 .comment button{
     margin-bottom: 20px;
@@ -196,7 +197,7 @@ footer{
         font-size: 18px;
     }
     footer{
-        font-size: 15px;
+        font-size: 12px;
     }
 }
 
