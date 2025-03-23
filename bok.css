@@ -10,7 +10,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 12%;
+    height: 100vh;
     
    
 }
@@ -58,7 +58,7 @@ button{
     color:black;
     transform:scale(1.04);
 }
-@media screen and (max-width:768px) {
+/* @media screen and (max-width:768px) {
     .main {
         margin-top: 40%;
     }
@@ -68,4 +68,4 @@ button{
     .main {
         margin-top: 40%;
     }
-}
+} */
