@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTFOLIO</title>
+    <link rel="stylesheet" href="st.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="logo">Masum.</div>
+            <nav>
+                <button class="toggle" onclick="togleMEneu()">&#9776;</button>
+            <ul id="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li> 
+            </ul>
+            </nav>
+        </div>
+      
+        <div class="main">
+            <div class="main-content">
+                <h1>Hi, I'm Masum</h1>
+                <h3>Web Developer</h3>
+                <p>I am a passionate web developer with a strong focus on creating responsive and user-friendly websites. I enjoy solving problems and bringing creative ideas to life through code.</p>
+                <div class="btn">
+                    <button>Hire Me</button> <button>View Portfolio</button>
+                </div>
+                
+                <div class="social">
+                    <p><a href="#"><i class="fa-brands fa-facebook-f"></i></a></p>
+                    <p><a href="#"><i class="fa-brands fa-twitter"></i></a></p>
+                    <p><a href="#"><i class="fa-brands fa-instagram"></i></a></p>
+                </div>
+            </div>
+            
+            <div class="main-image">
+                <img src="pexels-photo-771742.webp" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        function togleMEneu() {
+            const list = document.getElementById("nav");
+            list.classList.toggle('active');
+        }
+            
+    </script>
+
+</body>
+</html>
