@@ -76,10 +76,31 @@ nav ul li{
     margin: 0 20px;
 }
 nav ul li a{
+    position: relative;
     text-decoration: none;
     color: white;
     font-size: 20px;
 }
+nav ul li a:hover{
+    color: #ffc400;
+}
+nav ul li a::before{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ffc400;
+    left:0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    z-index: -1;
+    border-radius: 5px;
+}
+nav ul li a:hover::before{
+    width: 100%;
+
+}
+
 .lg{
     background-color: darkred;
     color:whitesmoke;
@@ -391,6 +412,18 @@ nav ul li a{
         width: 100%;
     }
 }
+@media screen and (max-width:1024px) {
+    nav ul li{
+        margin: 0 7px;
+    }
+    nav ul li a{
+        font-size: 18px;
+    }
+    .logo{
+        font-size: 17px;
+    }
+
+}
 .comment{
     display: flex;
     justify-content: center;
@@ -498,4 +531,3 @@ footer{
     }
     
 }
-
