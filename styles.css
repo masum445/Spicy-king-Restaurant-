@@ -4,17 +4,20 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #ddd;
+    background-color: #274353;;
 }
 .logo{
     text-align: center;
     margin-top: 0;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0.5); */
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    backdrop-filter:blur(10px);
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 5px;
     font-size: 20px;
-        
+    box-shadow: 0 0 10px rgba(255, 255, 255, 10);
     font-family: "Atma", system-ui;
     font-weight: 300;
     font-style: normal;
@@ -50,6 +53,7 @@ body{
     color:whitesmoke;
     font-size: 30px;
     
+    
 }
 .name{
     text-align: center;
@@ -79,7 +83,8 @@ body{
     gap: 20px;
     overflow: hidden;
     margin: 30px;
-    background-color: #274353;
+    /* background-color: #274353; */
+    background: linear-gradient(135deg, #4267df 0%, #4ba0a2 60%, #00ff91 100%);
     padding: 40px;
     border-radius: 10px;
     font-size: 24px;
@@ -88,7 +93,7 @@ body{
     width: 350px;
     color: whitesmoke;
     transition: 0.3s ease;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    box-shadow: 0 0 20px black;
    
 
 }
@@ -97,10 +102,18 @@ body{
     height: auto;
     border-radius: 10px;
     border: 1px dotted #00ff91;
+    
+}
+.child img:hover {
+    transition: .3s ease-in-out;
+    filter: grayscale(50%);
+    cursor: pointer;
+    
 }
 .child:hover{
     cursor: pointer;
-    transform:scaleY(1.05);
+    transition: .3s ease-in-out;
+   transform: scale(1.1);
 }
 .prent button{
     border: none;
