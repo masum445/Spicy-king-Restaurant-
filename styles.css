@@ -153,19 +153,26 @@ body{
     text-align: center;
     font-size: 18px;
     margin-bottom: 20px;
+   
 }
 form{
     width: 300px;
     box-shadow:0 0 10px black;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    background: linear-gradient(135deg, #381e35e2, #4f0814c7, #bc0e0ec7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgb(184, 193, 192);
     text-align: center;
     flex-direction: column;
     border-radius: 10px;
+    color: whitesmoke;
 }
 input{
     border: none;
     padding: 6px;
     background-color: #ddd;
+    border-radius: 5px;
 }
 
 label{
@@ -173,7 +180,8 @@ label{
     line-height: 50px;
     font-size: 20px;  
     text-shadow:0 0 70px whitesmoke;
-    color: rgb(28, 76, 167);
+    color: whitesmoke;
+    font-weight: bold;
 }
 .comment button{
     margin-bottom: 20px;
