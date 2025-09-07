@@ -190,13 +190,17 @@ nav ul li a:hover::before{
 } 
 @media screen and (max-width:767px) {
     .banner-content h1{
-        font-family: 0.2rem;
+        font-family: 0.3rem;
+        font-size: 1.5rem;
 
         
     }
     .banner-content p{
         font-size: 0.9rem;
     }
+    .btn a {
+                font-size: 14px;
+        }
 
     
 }
