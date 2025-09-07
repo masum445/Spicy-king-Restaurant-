@@ -221,6 +221,9 @@ footer{
     footer{
         font-size: 12px;
     }
+    form{
+        width: 70%;
+    }
     .btn button{
         font-size: 12px;
     }
