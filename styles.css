@@ -208,9 +208,10 @@ footer{
     text-align: center;
     padding: 8px;
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:769px) {
     .child{
-        width: 80%;
+        width: 60.5%;
+        font-size: 18px;
         flex-direction: column;
        
     }
@@ -218,6 +219,9 @@ footer{
         font-size: 18px;
     }
     footer{
+        font-size: 12px;
+    }
+    .btn button{
         font-size: 12px;
     }
 }
