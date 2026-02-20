@@ -65,7 +65,16 @@
       flex-wrap: wrap;
       gap: 15px;
       justify-content: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      align-items: center;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     select, input[type="number"] {
@@ -101,7 +110,6 @@
       box-shadow: 0 10px 25px rgba(15,93,58,0.35);
     }
 
-    /* Random Button with Sparkle Animation */
     .random-btn {
       background: linear-gradient(135deg, #b8860b, #d4af37);
       color: #1a1a1a;
@@ -151,7 +159,6 @@
 
     @keyframes pulse { 0%,100% {opacity:0.7;} 50% {opacity:1;} }
 
-    /* Hadith card with subtle arabic pattern */
     .hadith-card {
       background: var(--card-bg);
       border-radius: 20px;
@@ -188,7 +195,7 @@
       direction: rtl;
       text-align: right;
       margin-bottom: 25px;
-      color: #0a3f28;
+      color: #8e44ad; /* Cute purple color for Arabic */
       line-height: 1.9;
       font-weight: 400;
     }
@@ -226,6 +233,12 @@
       margin: 40px;
     }
 
+    .max-info {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
     @media (max-width: 768px) {
       h1 { font-size: 2.2rem; }
       .controls { flex-direction: column; gap: 12px; }
@@ -256,7 +269,11 @@
       <option value="Ibne-Mazah">সুনান ইবনে মাজাহ</option>
     </select>
     
-    <input type="number" id="hadithNumber" placeholder="হাদিস নম্বর (যেমন: 1)" min="1" />
+    <div class="input-group">
+      <input type="number" id="hadithNumber" placeholder="হাদিস নম্বর (যেমন: 1)" min="1" />
+      <span id="maxInfo" class="max-info"></span>
+    </div>
+    
     <button onclick="loadHadith()">হাদিস দেখাও</button>
   </div>
 
@@ -270,45 +287,78 @@
 <script>
 const bookSelect = document.getElementById('bookSelect');
 const hadithNumber = document.getElementById('hadithNumber');
+const maxInfo = document.getElementById('maxInfo');
 const loading = document.getElementById('loading');
 const results = document.getElementById('results');
 const baseURL = 'https://cdn.jsdelivr.net/gh/md-rifatkhan/hadithbangla@main/';
 let currentBook = '';
 
+const maxByBook = {
+  Bukhari: 7563,
+  Muslim: 7563,
+  AbuDaud: 5274,
+  'At-tirmizi': 3956,
+  'Al-Nasai': 5761,
+  'Ibne-Mazah': 4341
+};
+
 bookSelect.onchange = function() {
   currentBook = this.value;
-  results.innerHTML = currentBook ? '<p style="color:var(--primary); font-size:1.3rem; text-align:center;">বই সিলেক্ট হয়েছে: ' + this.options[this.selectedIndex].text + '</p>' : '';
+  results.innerHTML = '';
+
+  if (currentBook && maxByBook[currentBook]) {
+    const maxNum = maxByBook[currentBook];
+    hadithNumber.max = maxNum;
+    hadithNumber.placeholder = `হাদিস নম্বর (১–${maxNum})`;
+    maxInfo.textContent = `(সর্বোচ্চ: ${maxNum})`;
+    hadithNumber.value = '';
+
+    results.innerHTML = `<p style="color:var(--primary); font-size:1.3rem; text-align:center;">
+      বই সিলেক্ট হয়েছে: ${this.options[this.selectedIndex].text} (মোট হাদিস: ${maxNum})
+    </p>`;
+  } else {
+    hadithNumber.removeAttribute('max');
+    hadithNumber.placeholder = "হাদিস নম্বর (যেমন: 1)";
+    maxInfo.textContent = '';
+    results.innerHTML = '';
+  }
 };
 
 function getGradeHTML(grade) {
   if (!grade) return '<span class="grade" style="background:#bdc3c7;">গ্রেড: উল্লেখ নেই</span>';
   let color = '#bdc3c7';
+  let icon = '';
   const lowerGrade = grade.toLowerCase();
-  if (lowerGrade.includes('সহিহ') || lowerGrade.includes('sahih')) color = '#27ae60';
-  else if (lowerGrade.includes('হাসান') || lowerGrade.includes('hasan')) color = '#f39c12';
-  else if (lowerGrade.includes('দুর্বল') || lowerGrade.includes('daif') || lowerGrade.includes('জয়ীফ')) color = '#e74c3c';
-  return `<span class="grade" style="background:${color}">${grade}</span>`;
+  if (lowerGrade.includes('সহিহ') || lowerGrade.includes('sahih')) { color='#27ae60'; icon='✔️'; }
+  else if (lowerGrade.includes('হাসান') || lowerGrade.includes('hasan')) { color='#f39c12'; icon='⚠️'; }
+  else if (lowerGrade.includes('দুর্বল') || lowerGrade.includes('daif') || lowerGrade.includes('জয়ীফ')) { color='#e74c3c'; icon='❌'; }
+  return `<span class="grade" style="background:${color}">${icon} ${grade}</span>`;
 }
 
 async function loadHadith() {
   const num = parseInt(hadithNumber.value);
   if (!num || num < 1) return alert('সঠিক হাদিস নম্বর দিন!');
+  if (currentBook && maxByBook[currentBook] && num > maxByBook[currentBook]) {
+    return alert(`এই বইয়ে সর্বোচ্চ হাদিস নম্বর ${maxByBook[currentBook]}।`);
+  }
   if (!currentBook) return alert('প্রথমে বই সিলেক্ট করুন!');
+  
   loading.style.display = 'block';
   results.innerHTML = '';
+  
   try {
     const url = baseURL + currentBook + '/hadith/' + num + '.json';
     const res = await fetch(url);
     if (!res.ok) throw new Error('হাদিস পাওয়া যায়নি (কোড: ' + res.status + ')');
     const data = await res.json();
     const hadith = data.hadith || data;
-    const gradeHTML = getGradeHTML(hadith.grade);
+    
     results.innerHTML = `
       <div class="hadith-card">
         <div class="arabic">${hadith.ar || '(আরবি টেক্সট নেই)'}</div>
         <div class="bengali">${hadith.bn || '(বাংলা অনুবাদ নেই)'}</div>
         <div class="reference">
-          গ্রন্থ: ${bookSelect.options[bookSelect.selectedIndex].text} • হাদিস নং: ${num} ${gradeHTML}
+          গ্রন্থ: ${bookSelect.options[bookSelect.selectedIndex].text} • হাদিস নং: ${num} ${getGradeHTML(hadith.grade)}
         </div>
       </div>`;
   } catch (err) {
@@ -319,24 +369,25 @@ async function loadHadith() {
 
 async function getRandomHadith() {
   if (!currentBook) return alert('প্রথমে বই সিলেক্ট করুন!');
-  const maxByBook = { Bukhari: 7563, Muslim: 7563, AbuDaud: 5274, 'At-tirmizi': 3956, 'Al-Nasai': 5761, 'Ibne-Mazah': 4341 };
   const max = maxByBook[currentBook] || 5000;
   const randomNum = Math.floor(Math.random() * max) + 1;
+  
   loading.style.display = 'block';
   results.innerHTML = '';
+  
   try {
     const url = baseURL + currentBook + '/hadith/' + randomNum + '.json';
     const res = await fetch(url);
     if (!res.ok) throw new Error('র‍্যান্ডম হাদিস পাওয়া যায়নি');
     const data = await res.json();
     const hadith = data.hadith || data;
-    const gradeHTML = getGradeHTML(hadith.grade);
+    
     results.innerHTML = `
       <div class="hadith-card">
         <div class="arabic">${hadith.ar || '(আরবি টেক্সট নেই)'}</div>
         <div class="bengali">${hadith.bn || '(বাংলা অনুবাদ নেই)'}</div>
         <div class="reference">
-          গ্রন্থ: ${bookSelect.options[bookSelect.selectedIndex].text} • হাদিস নং: ${randomNum} (র‍্যান্ডম) ${gradeHTML}
+          গ্রন্থ: ${bookSelect.options[bookSelect.selectedIndex].text} • হাদিস নং: ${randomNum} (র‍্যান্ডম) ${getGradeHTML(hadith.grade)}
         </div>
       </div>`;
   } catch (err) {
