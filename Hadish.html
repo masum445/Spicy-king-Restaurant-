@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>বাংলা হাদীস সংগ্রহ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f5d3a;
+      --primary-dark: #0a3f28;
+      --gold: #d4af37;
+      --light-gold: #f0d88a;
+      --bg: #f8f5ef;
+      --card-bg: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-light: #4a4a4a;
+    }
+
+    body {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      background: linear-gradient(135deg, var(--bg) 0%, #f0ede5 100%);
+      margin: 0;
+      padding: 20px 15px;
+      min-height: 100vh;
+      color: var(--text-dark);
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><circle cx="60" cy="60" r="50" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.05"/></svg>');
+      background-repeat: repeat;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 6px rgba(15,93,58,0.2);
+    }
+
+    .subtitle {
+      color: var(--text-light);
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .crescent {
+      font-size: 3rem;
+      color: var(--gold);
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      opacity: 0.8;
+      transform: rotate(-15deg);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    select, input[type="number"] {
+      padding: 14px 18px;
+      font-size: 1.1rem;
+      border: 2px solid #e0d9c0;
+      border-radius: 12px;
+      min-width: 220px;
+      background: #fff;
+      transition: all 0.3s;
+    }
+
+    select:focus, input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(212,175,55,0.2);
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(15,93,58,0.25);
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(15,93,58,0.35);
+    }
+
+    /* Random Button with Sparkle Animation */
+    .random-btn {
+      background: linear-gradient(135deg, #b8860b, #d4af37);
+      color: #1a1a1a;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+      padding: 16px 50px;
+      font-size: 1.3rem;
+      margin: 0 auto 50px;
+      display: block;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+    }
+
+    .random-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.6) 10%, transparent 10.5%);
+      background-size: 10px 10px;
+      animation: sparkle 2s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sparkle {
+      0% { transform: rotate(0deg) translate(0,0); }
+      100% { transform: rotate(360deg) translate(0,0); }
+    }
+
+    .random-btn:hover {
+      background: linear-gradient(135deg, #d4af37, #f0d88a);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(212,175,55,0.35);
+    }
+
+    .loading {
+      text-align: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin: 50px 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse { 0%,100% {opacity:0.7;} 50% {opacity:1;} }
+
+    /* Hadith card with subtle arabic pattern */
+    .hadith-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 35px;
+      margin: 0 auto 40px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      border-left: 5px solid var(--gold);
+      transition: all 0.4s ease;
+      max-width: 95%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hadith-card::before {
+      content: "بسم الله الرحمن الرحيم";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 5rem;
+      color: rgba(212,175,55,0.05);
+      pointer-events: none;
+      transform: rotate(-20deg);
+      font-family: 'Amiri', serif;
+    }
+
+    .hadith-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(212,175,55,0.15);
+    }
+
+    .arabic {
+      font-family: 'Amiri', 'Traditional Arabic', serif;
+      font-size: 2.4rem;
+      direction: rtl;
+      text-align: right;
+      margin-bottom: 25px;
+      color: #0a3f28;
+      line-height: 1.9;
+      font-weight: 400;
+    }
+
+    .bengali {
+      font-size: 1.4rem;
+      margin: 20px 0;
+      color: #2c2c2c;
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    .reference {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .grade {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-left: 12px;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .error-msg {
+      color: #c0392b;
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 40px;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .controls { flex-direction: column; gap: 12px; }
+      select, input, button { width: 100%; }
+      .hadith-card { padding: 25px; }
+      .arabic { font-size: 2rem; }
+      .bengali { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>বাংলা হাদীস সংগ্রহ</h1>
+    <p class="subtitle">সহীহ হাদীস • আরবি + বাংলা অনুবাদ • ইসলামিক সৌন্দর্যে</p>
+    <div class="crescent">🌙</div>
+  </header>
+
+  <div class="controls">
+    <select id="bookSelect">
+      <option value="">বই সিলেক্ট করুন...</option>
+      <option value="Bukhari">সহীহ বুখারী</option>
+      <option value="Muslim">সহীহ মুসলিম</option>
+      <option value="AbuDaud">সুনান আবু দাউদ</option>
+      <option value="At-tirmizi">জামে তিরমিযী</option>
+      <option value="Al-Nasai">সুনান নাসাঈ</option>
+      <option value="Ibne-Mazah">সুনান ইবনে মাজাহ</option>
+    </select>
+    
+    <input type="number" id="hadithNumber" placeholder="হাদিস নম্বর (যেমন: 1)" min="1" />
+    <button onclick="loadHadith()">হাদিস দেখাও</button>
+  </div>
+
+  <button class="random-btn" onclick="getRandomHadith()">র‍্যান্ডম হাদীস দেখাও</button>
+
+  <div id="loading" class="loading" style="display:none;">লোড হচ্ছে... অপেক্ষা করুন</div>
+
+  <div id="results"></div>
+</div>
+
+<script>
+const bookSelect = document.getElementById('bookSelect');
+const hadithNumber = document.getElementById('hadithNumber');
+const loading = document.getElementById('loading');
+const results = document.getElementById('results');
+const baseURL = 'https://cdn.jsdelivr.net/gh/md-rifatkhan/hadithbangla@main/';
+let currentBook = '';
+
+bookSelect.onchange = function() {
+  currentBook = this.value;
+  results.innerHTML = currentBook ? '<p style="color:var(--primary); font-size:1.3rem; text-align:center;">বই সিলেক্ট হয়েছে: ' + this.options[this.selectedIndex].text + '</p>' : '';
+};
+
+function getGradeHTML(grade) {
+  if (!grade) return '<span class="grade" style="background:#bdc3c7;">গ্রেড: উল্লেখ নেই</span>';
+  let color = '#bdc3c7';
+  const lowerGrade = grade.toLowerCase();
+  if (lowerGrade.includes('সহিহ') || lowerGrade.includes('sahih')) color = '#27ae60';
+  else if (lowerGrade.includes('হাসান') || lowerGrade.includes('hasan')) color = '#f39c12';
+  else if (lowerGrade.includes('দুর্বল') || lowerGrade.includes('daif') || lowerGrade.includes('জয়ীফ')) color = '#e74c3c';
+  return `<span class="grade" style="background:${color}">${grade}</span>`;
+}
+
+async function loadHadith() {
+  const num = parseInt(hadithNumber.value);
+  if (!num || num < 1) return alert('সঠিক হাদিস নম্বর দিন!');
+  if (!currentBook) return alert('প্রথমে বই সিলেক্ট করুন!');
+  loading.style.display = 'block';
+  results.innerHTML = '';
+  try {
+    const url = baseURL + currentBook + '/hadith/' + num + '.json';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('হাদিস পাওয়া যায়নি (কোড: ' + res.status + ')');
+    const data = await res.json();
+    const hadith = data.hadith || data;
+    const gradeHTML = getGradeHTML(hadith.grade);
+    results.innerHTML = `
+      <div class="hadith-card">
+        <div class="arabic">${hadith.ar || '(আরবি টেক্সট নেই)'}</div>
+        <div class="bengali">${hadith.bn || '(বাংলা অনুবাদ নেই)'}</div>
+        <div class="reference">
+          গ্রন্থ: ${bookSelect.options[bookSelect.selectedIndex].text} • হাদিস নং: ${num} ${gradeHTML}
+        </div>
+      </div>`;
+  } catch (err) {
+    results.innerHTML = `<p class="error-msg">সমস্যা: ${err.message}<br>ইন্টারনেট / নম্বর / বই চেক করুন।</p>`;
+  }
+  loading.style.display = 'none';
+}
+
+async function getRandomHadith() {
+  if (!currentBook) return alert('প্রথমে বই সিলেক্ট করুন!');
+  const maxByBook = { Bukhari: 7563, Muslim: 7563, AbuDaud: 5274, 'At-tirmizi': 3956, 'Al-Nasai': 5761, 'Ibne-Mazah': 4341 };
+  const max = maxByBook[currentBook] || 5000;
+  const randomNum = Math.floor(Math.random() * max) + 1;
+  loading.style.display = 'block';
+  results.innerHTML = '';
+  try {
+    const url = baseURL + currentBook + '/hadith/' + randomNum + '.json';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('র‍্যান্ডম হাদিস পাওয়া যায়নি');
+    const data = await res.json();
+    const hadith = data.hadith || data;
+    const gradeHTML = getGradeHTML(hadith.grade);
+    results.innerHTML = `
+      <div class="hadith-card">
+        <div class="arabic">${hadith.ar || '(আরবি টেক্সট নেই)'}</div>
+        <div class="bengali">${hadith.bn || '(বাংলা অনুবাদ নেই)'}</div>
+        <div class="reference">
+          গ্রন্থ: ${bookSelect.options[bookSelect.selectedIndex].text} • হাদিস নং: ${randomNum} (র‍্যান্ডম) ${gradeHTML}
+        </div>
+      </div>`;
+  } catch (err) {
+    results.innerHTML = `<p class="error-msg">র‍্যান্ডম লোডে সমস্যা: ${err.message}</p>`;
+  }
+  loading.style.display = 'none';
+}
+</script>
+</body>
+</html>
